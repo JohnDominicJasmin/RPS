@@ -65,7 +65,6 @@ class Ui_Dialog(object):
         self.label_25.setText(_translate("Dialog", "YOU WIN!"))
         self.pushButton_17.setText(_translate("Dialog", "PLAY AGAIN"))
         self.pushButton_18.setText(_translate("Dialog", "X"))
-import img_rc
 
 
 if __name__ == "__main__":

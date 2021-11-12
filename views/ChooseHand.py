@@ -78,7 +78,7 @@ class ChooseHandWindow(object):
         self.scissor_picture.setObjectName("scissor_picture")
         self.pictureshorizontalLayout.addWidget(self.scissor_picture)
         MainWindow.setCentralWidget(self.centralwidget)
-        self.name = "digonng"
+        
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
