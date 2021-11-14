@@ -17,8 +17,8 @@ class Ui_DialogRockDraw(object):
   
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(1000, 626)
-        Dialog.setFixedSize(1000,626)
+        Dialog.resize(1000, 768)
+        Dialog.setFixedSize(1000,768)
         for m in get_monitors():
           screenHeight = m.height
           screenWidth = m.width

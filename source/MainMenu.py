@@ -20,6 +20,7 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setWindowModality(QtCore.Qt.ApplicationModal)
         MainWindow.resize(1000, 768)
+        MainWindow.setFixedSize(1000,768)
         MainWindow.setAutoFillBackground(False)
         MainWindow.setStyleSheet("background:rgb(81, 81, 81)")
         for m in get_monitors():

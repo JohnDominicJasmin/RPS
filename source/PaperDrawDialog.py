@@ -16,8 +16,8 @@ from screeninfo import get_monitors
 class Ui_DialogPaperDraw(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(1000, 626)
-        Dialog.setFixedSize(1000,626)
+        Dialog.resize(1000, 768)
+        Dialog.setFixedSize(1000,768)
         self.label_17 = QtWidgets.QLabel(Dialog)
         self.label_17.setGeometry(QtCore.QRect(400, 240, 181, 41))
         for m in get_monitors():

@@ -15,8 +15,8 @@ from screeninfo import get_monitors
 class Ui_DialogPaperWin(object):
     def setupUi(self, DialogPaperWin):
         DialogPaperWin.setObjectName("DialogPaperWin")
-        DialogPaperWin.resize(1016, 626)
-        DialogPaperWin.setFixedSize(1000,626)
+        DialogPaperWin.resize(1016, 768)
+        DialogPaperWin.setFixedSize(1000,768)
         for m in get_monitors():
           screenHeight = m.height
           screenWidth = m.width
