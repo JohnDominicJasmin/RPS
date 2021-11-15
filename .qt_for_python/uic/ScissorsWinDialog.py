@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ScissorsWinDialog.ui'
+# Form implementation generated from reading ui file '/home/miko/python/RPS/source/ScissorsWinDialog.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -9,48 +9,52 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from images import ResourceImage
-from screeninfo import get_monitors
 
-class Ui_DialogScissorsWin(object):
+
+class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(1016, 768)
-        Dialog.setFixedSize(1000,768)
-        for m in get_monitors():
-          screenHeight = m.height
-          screenWidth = m.width
-        Dialog.setGeometry((screenWidth/2)-(1000/2),(screenHeight/2)-(768/2),1000,768)
+        Dialog.resize(1000, 768)
+        font = QtGui.QFont()
+        font.setFamily("Noto Sans")
+        Dialog.setFont(font)
+        Dialog.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.label_27 = QtWidgets.QLabel(Dialog)
-        self.label_27.setGeometry(QtCore.QRect(400, -20, 201, 261))
+        self.label_27.setGeometry(QtCore.QRect(390, 0, 231, 321))
         self.label_27.setStyleSheet("image: url(:/new/images/Hand_Big_Upside.png);")
         self.label_27.setText("")
         self.label_27.setObjectName("label_27")
         self.label_25 = QtWidgets.QLabel(Dialog)
-        self.label_25.setGeometry(QtCore.QRect(400, 240, 181, 41))
+        self.label_25.setGeometry(QtCore.QRect(430, 350, 151, 41))
         font = QtGui.QFont()
+        font.setFamily("Noto Sans")
         font.setPointSize(18)
         font.setBold(True)
         font.setWeight(75)
         self.label_25.setFont(font)
+        self.label_25.setStyleSheet("color: rgb(0, 0, 0);")
         self.label_25.setAlignment(QtCore.Qt.AlignCenter)
         self.label_25.setObjectName("label_25")
         self.pushButton_17 = QtWidgets.QPushButton(Dialog)
-        self.pushButton_17.setGeometry(QtCore.QRect(360, 290, 251, 51))
+        self.pushButton_17.setGeometry(QtCore.QRect(320, 410, 371, 51))
         font = QtGui.QFont()
+        font.setFamily("Noto Sans")
         font.setPointSize(16)
         font.setBold(False)
         font.setWeight(50)
         self.pushButton_17.setFont(font)
+        self.pushButton_17.setStyleSheet("background-color: rgb(206, 206, 206);\n"
+"color: rgb(0, 0, 0);")
         self.pushButton_17.setObjectName("pushButton_17")
         self.label_26 = QtWidgets.QLabel(Dialog)
-        self.label_26.setGeometry(QtCore.QRect(390, 370, 201, 261))
+        self.label_26.setGeometry(QtCore.QRect(400, 480, 221, 281))
         self.label_26.setStyleSheet("image: url(:/new/images/Scissor_Big.png);")
         self.label_26.setText("")
         self.label_26.setObjectName("label_26")
         self.pushButton_18 = QtWidgets.QPushButton(Dialog)
         self.pushButton_18.setGeometry(QtCore.QRect(0, 0, 31, 31))
         font = QtGui.QFont()
+        font.setFamily("Noto Sans")
         font.setBold(True)
         font.setWeight(75)
         self.pushButton_18.setFont(font)
@@ -65,5 +69,4 @@ class Ui_DialogScissorsWin(object):
         self.label_25.setText(_translate("Dialog", "YOU WIN!"))
         self.pushButton_17.setText(_translate("Dialog", "PLAY AGAIN"))
         self.pushButton_18.setText(_translate("Dialog", "X"))
-
-
+import img_rc

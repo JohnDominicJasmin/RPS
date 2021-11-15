@@ -3,11 +3,9 @@ import Rock
 import Scissor
 from PyQt5 import QtCore, QtGui, QtWidgets
 from images import ResourceImage
-import PaperWinDialog 
-import PaperLoseDialog
-import PaperDrawDialog
 import MainMenu as mm
-
+import ResultDialog
+from Constants import _Constants as constants
 
 class Hand_Paper(Parent):
 
@@ -26,9 +24,9 @@ class Hand_Paper(Parent):
     def set_ui_result(self):
         self.window = QtWidgets.QMainWindow()
         self.hand_window = {
-            Rock.Hand_Rock: PaperWinDialog.Ui_DialogPaperWin(),
-            Scissor.Hand_Scissor:PaperLoseDialog.Ui_DialogPaperLose(),
-            __class__: PaperDrawDialog.Ui_DialogPaperDraw()
+            Rock.Hand_Rock: ResultDialog.UI_ResultDialog(constants.WIN,constants.OPPONENT_ROCK,constants.PLAYER_PAPER),
+            Scissor.Hand_Scissor:ResultDialog.UI_ResultDialog(constants.LOSE,constants.OPPONENT_SCISSOR,constants.PLAYER_PAPER),
+            __class__: ResultDialog.UI_ResultDialog(constants.DRAW, constants.OPPONENT_PAPER,constants.PLAYER_PAPER)
             }
 
         self.ui = self.hand_window.get(self.strategy)

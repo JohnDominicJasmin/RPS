@@ -1,9 +1,8 @@
 from GameStrategy import Game_Strategy as Parent
 import Paper 
 import Rock
-import RockWinDialog
-import RockLoseDialog
-import RockDrawDialog
+import ResultDialog
+from Constants import _Constants as constants
 import Scissor
 from PyQt5 import QtCore, QtGui, QtWidgets
 from images import ResourceImage
@@ -26,9 +25,9 @@ class Hand_Rock(Parent):
 
         self.window = QtWidgets.QMainWindow()
         self.hand_window = {
-            Scissor.Hand_Scissor:RockWinDialog.Ui_DialogRockWin(),
-            Paper.Hand_Paper: RockLoseDialog.Ui_DialogRockLose(),
-            __class__:RockDrawDialog.Ui_DialogRockDraw()
+            Scissor.Hand_Scissor:ResultDialog.UI_ResultDialog(constants.WIN,constants.OPPONENT_SCISSOR, constants.PLAYER_ROCK),
+            Paper.Hand_Paper: ResultDialog.UI_ResultDialog(constants.LOSE,constants.OPPONENT_PAPER,constants.PLAYER_ROCK),
+            __class__:ResultDialog.UI_ResultDialog(constants.DRAW,constants.OPPONENT_ROCK,constants.PLAYER_ROCK)
             }
 
         self.ui = self.hand_window.get(self.strategy)

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ScissorsLoseDialog.ui'
+# Form implementation generated from reading ui file '/home/miko/python/RPS/source/ScissorsLoseDialog.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -9,27 +9,22 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from images import ResourceImage
-from screeninfo import get_monitors
 
 
-
-class Ui_DialogScissorLose(object):
+class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(1000, 768)
-        Dialog.setFixedSize(1000,768)
-        for m in get_monitors():
-          screenHeight = m.height
-          screenWidth = m.width
-        Dialog.setGeometry((screenWidth/2)-(1000/2),(screenHeight/2)-(768/2),1000,768)
+        Dialog.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.pushButton_15 = QtWidgets.QPushButton(Dialog)
-        self.pushButton_15.setGeometry(QtCore.QRect(360, 300, 251, 51))
+        self.pushButton_15.setGeometry(QtCore.QRect(320, 400, 371, 51))
         font = QtGui.QFont()
         font.setPointSize(16)
         font.setBold(False)
         font.setWeight(50)
         self.pushButton_15.setFont(font)
+        self.pushButton_15.setStyleSheet("color: rgb(0, 0, 0);\n"
+"background-color: rgb(206, 206, 206);")
         self.pushButton_15.setObjectName("pushButton_15")
         self.pushButton_16 = QtWidgets.QPushButton(Dialog)
         self.pushButton_16.setGeometry(QtCore.QRect(0, 10, 31, 31))
@@ -39,21 +34,22 @@ class Ui_DialogScissorLose(object):
         self.pushButton_16.setFont(font)
         self.pushButton_16.setObjectName("pushButton_16")
         self.label_22 = QtWidgets.QLabel(Dialog)
-        self.label_22.setGeometry(QtCore.QRect(400, 250, 181, 41))
+        self.label_22.setGeometry(QtCore.QRect(410, 340, 181, 41))
         font = QtGui.QFont()
         font.setPointSize(18)
         font.setBold(True)
         font.setWeight(75)
         self.label_22.setFont(font)
+        self.label_22.setStyleSheet("color: rgb(0, 0, 0);")
         self.label_22.setAlignment(QtCore.Qt.AlignCenter)
         self.label_22.setObjectName("label_22")
         self.label_23 = QtWidgets.QLabel(Dialog)
-        self.label_23.setGeometry(QtCore.QRect(390, 380, 201, 261))
+        self.label_23.setGeometry(QtCore.QRect(400, 490, 201, 261))
         self.label_23.setStyleSheet("image: url(:/new/images/Scissor_Big.png);")
         self.label_23.setText("")
         self.label_23.setObjectName("label_23")
         self.label_24 = QtWidgets.QLabel(Dialog)
-        self.label_24.setGeometry(QtCore.QRect(400, -10, 201, 261))
+        self.label_24.setGeometry(QtCore.QRect(400, 20, 201, 261))
         self.label_24.setStyleSheet("image: url(:/new/images/Rock_Big_Upside.png);")
         self.label_24.setText("")
         self.label_24.setObjectName("label_24")
@@ -67,6 +63,4 @@ class Ui_DialogScissorLose(object):
         self.pushButton_15.setText(_translate("Dialog", "PLAY AGAIN"))
         self.pushButton_16.setText(_translate("Dialog", "X"))
         self.label_22.setText(_translate("Dialog", "YOU LOSE!"))
-
-
-
+import img_rc

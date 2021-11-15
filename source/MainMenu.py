@@ -12,7 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from images import ResourceImage
 from screeninfo import get_monitors
 from ChooseHand import *
-import PaperWinDialog
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):

@@ -13,7 +13,15 @@ from images import ResourceImage
 from screeninfo import get_monitors
 
 
-class Ui_DialogPaperDraw(object):
+class UI_ResultDialog(object):
+
+    def __init__(self,label_text,picture_opponent,picture_player):
+      self.label_text = label_text
+      self.picture_opponent = picture_opponent
+      self.picture_player = picture_player
+
+
+
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(1000, 768)
@@ -31,24 +39,24 @@ class Ui_DialogPaperDraw(object):
         self.label_17.setFont(font)
         self.label_17.setAlignment(QtCore.Qt.AlignCenter)
         self.label_17.setObjectName("label_17")
-        self.pushButton_11 = QtWidgets.QPushButton(Dialog)
-        self.pushButton_11.setGeometry(QtCore.QRect(360, 290, 251, 51))
+        self.push_button_play_again = QtWidgets.QPushButton(Dialog)
+        self.push_button_play_again.setGeometry(QtCore.QRect(360, 290, 251, 51))
         font = QtGui.QFont()
         font.setPointSize(16)
         font.setBold(False)
         font.setWeight(50)
-        self.pushButton_11.setFont(font)
-        self.pushButton_11.setObjectName("pushButton_11")
-        self.label_16 = QtWidgets.QLabel(Dialog)
-        self.label_16.setGeometry(QtCore.QRect(390, 370, 201, 261))
-        self.label_16.setStyleSheet("image: url(:/new/images/Hand_Big.png);")
-        self.label_16.setText("")
-        self.label_16.setObjectName("label_16")
-        self.label_18 = QtWidgets.QLabel(Dialog)
-        self.label_18.setGeometry(QtCore.QRect(400, -20, 201, 271))
-        self.label_18.setStyleSheet("image: url(:/new/images/Hand_Big_Upside.png);")
-        self.label_18.setText("")
-        self.label_18.setObjectName("label_18")
+        self.push_button_play_again.setFont(font)
+        self.push_button_play_again.setObjectName("pushButton_11")
+        self.label_picture_player = QtWidgets.QLabel(Dialog)
+        self.label_picture_player.setGeometry(QtCore.QRect(390, 370, 201, 261))
+        self.label_picture_player.setStyleSheet(self.picture_player)
+        self.label_picture_player.setText("")
+        self.label_picture_player.setObjectName("label_picture_player")
+        self.label_picture_opponent = QtWidgets.QLabel(Dialog)
+        self.label_picture_opponent.setGeometry(QtCore.QRect(400, -20, 201, 271))
+        self.label_picture_opponent.setStyleSheet(self.picture_opponent)
+        self.label_picture_opponent.setText("")
+        self.label_picture_opponent.setObjectName("label_picture_opponent")
         self.pushButton_12 = QtWidgets.QPushButton(Dialog)
         self.pushButton_12.setGeometry(QtCore.QRect(0, 0, 31, 31))
         font = QtGui.QFont()
@@ -63,8 +71,8 @@ class Ui_DialogPaperDraw(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.label_17.setText(_translate("Dialog", "IT\'S A DRAW!"))
-        self.pushButton_11.setText(_translate("Dialog", "PLAY AGAIN"))
+        self.label_17.setText(_translate("Dialog", self.label_text))
+        self.push_button_play_again.setText(_translate("Dialog", "PLAY AGAIN"))
         self.pushButton_12.setText(_translate("Dialog", "X"))
 
 
