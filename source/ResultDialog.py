@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from images import ResourceImage
 from screeninfo import get_monitors
-
+from Constants import _Constants as constants
 
 class UI_ResultDialog(object):
 
@@ -23,47 +23,47 @@ class UI_ResultDialog(object):
 
 
     def setupUi(self, Dialog):
-        Dialog.setObjectName("Dialog")
+
         Dialog.resize(1000, 768)
         Dialog.setFixedSize(1000,768)
-        self.label_17 = QtWidgets.QLabel(Dialog)
-        self.label_17.setGeometry(QtCore.QRect(400, 240, 181, 41))
+        self.result_text = QtWidgets.QLabel(Dialog)
+        self.result_text.setGeometry(QtCore.QRect(400, 315, 191, 41))
         for m in get_monitors():
           screenHeight = m.height
           screenWidth = m.width
         Dialog.setGeometry((screenWidth/2)-(1000/2),(screenHeight/2)-(768/2),1000,768)
+        Dialog.setStyleSheet("background-color:rgb(255, 255, 255)")
         font = QtGui.QFont()
         font.setPointSize(18)
         font.setBold(True)
         font.setWeight(75)
-        self.label_17.setFont(font)
-        self.label_17.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_17.setObjectName("label_17")
+        self.result_text.setFont(font)
+        self.result_text.setAlignment(QtCore.Qt.AlignCenter)
+        self.result_text.setStyleSheet("color:rgb(0,0,0)")
         self.push_button_play_again = QtWidgets.QPushButton(Dialog)
-        self.push_button_play_again.setGeometry(QtCore.QRect(360, 290, 251, 51))
+        self.push_button_play_again.setGeometry(QtCore.QRect(335, 360, 320, 60))
+        self.push_button_play_again.setStyleSheet("color:rgb(0,0,0)")
         font = QtGui.QFont()
         font.setPointSize(16)
         font.setBold(False)
         font.setWeight(50)
         self.push_button_play_again.setFont(font)
-        self.push_button_play_again.setObjectName("pushButton_11")
+
         self.label_picture_player = QtWidgets.QLabel(Dialog)
-        self.label_picture_player.setGeometry(QtCore.QRect(390, 370, 201, 261))
+        self.label_picture_player.setGeometry(QtCore.QRect(390, 440, 201, 350)) 
         self.label_picture_player.setStyleSheet(self.picture_player)
         self.label_picture_player.setText("")
-        self.label_picture_player.setObjectName("label_picture_player")
+
         self.label_picture_opponent = QtWidgets.QLabel(Dialog)
-        self.label_picture_opponent.setGeometry(QtCore.QRect(400, -20, 201, 271))
+        self.label_picture_opponent.setGeometry(QtCore.QRect(400, -25, 201, 350))
         self.label_picture_opponent.setStyleSheet(self.picture_opponent)
         self.label_picture_opponent.setText("")
-        self.label_picture_opponent.setObjectName("label_picture_opponent")
-        self.pushButton_12 = QtWidgets.QPushButton(Dialog)
-        self.pushButton_12.setGeometry(QtCore.QRect(0, 0, 31, 31))
+
+   
         font = QtGui.QFont()
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton_12.setFont(font)
-        self.pushButton_12.setObjectName("pushButton_12")
+       
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -71,9 +71,18 @@ class UI_ResultDialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.label_17.setText(_translate("Dialog", self.label_text))
+        self.result_text.setText(_translate("Dialog", self.label_text))
         self.push_button_play_again.setText(_translate("Dialog", "PLAY AGAIN"))
-        self.pushButton_12.setText(_translate("Dialog", "X"))
+    
 
 
 
+if __name__ == "__main__":
+    import sys
+    
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = UI_ResultDialog(constants.DRAW, constants.OPPONENT_PAPER, constants.PLAYER_PAPER)
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())

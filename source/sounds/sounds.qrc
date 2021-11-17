@@ -2,9 +2,9 @@
     <qresource prefix="/new/sounds">
         <file>bgm.wav</file>
         <file>gameOver.wav</file>
-        <file>mouseClick.wav</file>
         <file>victory.wav</file>
         <file>win.wav</file>
         <file>lose.wav</file>
+        <file>click.wav</file>
     </qresource>
 </RCC>
