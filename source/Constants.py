@@ -15,3 +15,15 @@ class _Constants:
     PLAYER_PAPER = "image: url(:/new/images/Hand_Big.png);"
     PLAYER_SCISSOR = "image: url(:/new/images/Scissor_Big.png);"
     PLAYER_ROCK = "image: url(:/new/images/Rock_Big.png);"
+
+
+
+    BACKGROUND_MUSIC = "bgm"
+    GAMEOVER_SOUND = "gameOver"
+    LOSE_SOUND = "lose"
+    MOUSE_CLICK = "mouseclick"
+    VICTORY_SOUND = "victory"
+    WIN_SOUND = "win"
+
+    SOUND_FILE_FORMAT =  ".wav"
+    SOUND_DIRECTORY = "source/sounds/"

@@ -119,16 +119,14 @@ class ChooseHandWindow(object):
        
 
     def paper_button_on_click(self):
+        self.test(Paper.Hand_Paper)
+
+    def test(self,strategy):
         self.strategy = Abstract_Strategy(self.enemy.create_enemy())
-        self.strategy.play_against(Paper.Hand_Paper)
+        self.strategy.play_against(strategy)
         print(self.strategy.get_score())
         self.strategy.set_ui_result()
         self.window.close()
-       
-
-
-
-
 
 
 
