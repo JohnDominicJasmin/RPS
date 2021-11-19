@@ -27,7 +27,7 @@ class UI_ResultDialog(object):
         Dialog.resize(1000, 768)
         Dialog.setFixedSize(1000,768)
         self.result_text = QtWidgets.QLabel(Dialog)
-        self.result_text.setGeometry(QtCore.QRect(400, 315, 191, 41))
+        self.result_text.setGeometry(QtCore.QRect(400, 320, 191, 41))
         for m in get_monitors():
           screenHeight = m.height
           screenWidth = m.width
@@ -41,7 +41,7 @@ class UI_ResultDialog(object):
         self.result_text.setAlignment(QtCore.Qt.AlignCenter)
         self.result_text.setStyleSheet("color:rgb(0,0,0)")
         self.push_button_play_again = QtWidgets.QPushButton(Dialog)
-        self.push_button_play_again.setGeometry(QtCore.QRect(335, 360, 320, 60))
+        self.push_button_play_again.setGeometry(QtCore.QRect(335, 372, 320, 60))
         self.push_button_play_again.setStyleSheet("color:rgb(0,0,0)")
         font = QtGui.QFont()
         font.setPointSize(16)
@@ -50,7 +50,7 @@ class UI_ResultDialog(object):
         self.push_button_play_again.setFont(font)
 
         self.label_picture_player = QtWidgets.QLabel(Dialog)
-        self.label_picture_player.setGeometry(QtCore.QRect(390, 440, 201, 350)) 
+        self.label_picture_player.setGeometry(QtCore.QRect(390, 436, 201, 350)) 
         self.label_picture_player.setStyleSheet(self.picture_player)
         self.label_picture_player.setText("")
 
