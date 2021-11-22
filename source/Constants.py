@@ -24,6 +24,6 @@ class _Constants:
     MOUSE_CLICK = "mouseclick"
     VICTORY_SOUND = "victory"
     WIN_SOUND = "win"
-    DRAW_SOUND = "draw1"
+    DRAW_SOUND = "draw_sound"
     SOUND_FILE_FORMAT =  ".wav"
     SOUND_DIRECTORY = "source/sounds/"
