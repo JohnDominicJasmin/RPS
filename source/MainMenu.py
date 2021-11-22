@@ -74,9 +74,9 @@ class Ui_MainWindow(object):
 "SCISSOR"))
 
     def provide_click_listeners(self):
-        self.pushButton.clicked.connect(self.openChooseHand)
+        self.pushButton.clicked.connect(self.open_choose_hand_window)
 
-    def openChooseHand(self):
+    def open_choose_hand_window(self):
         self.windows2 = QtWidgets.QMainWindow()
         self.ui = ChooseHandWindow()
         self.ui.setupUi (self.windows2)
@@ -84,7 +84,7 @@ class Ui_MainWindow(object):
         self.soundclicks = _Audio()
         self.soundclicks.playClickingSound()
         self.windows2.show()  
-        self.window.hide()
+        self.window.close()
 
 
 

@@ -119,7 +119,7 @@ class ChooseHandWindow(object):
         print(score)#todo
         self.play_sound_accordingly(score)
         self.strategy.set_ui_result()
-        self.window.hide()
+        self.window.close()
 
     def play_sound_accordingly(self, score):
         self.sound = _Audio()

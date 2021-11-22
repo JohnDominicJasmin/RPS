@@ -12,6 +12,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from images import ResourceImage
 from screeninfo import get_monitors
 from Constants import _Constants as constants
+from Audio import _Audio
+import ChooseHand 
+
 
 class UI_ResultDialog(object):
 
@@ -22,25 +25,26 @@ class UI_ResultDialog(object):
 
 
 
-    def setupUi(self, Dialog):
+    def setupUi(self, MainWindow):
 
-        Dialog.resize(1000, 768)
-        Dialog.setFixedSize(1000,768)
-        self.result_text = QtWidgets.QLabel(Dialog)
+        MainWindow.resize(1000, 768)
+        MainWindow.setFixedSize(1000,768)
+        self.result_text = QtWidgets.QLabel(MainWindow)
         self.result_text.setGeometry(QtCore.QRect(400, 320, 191, 41))
         for m in get_monitors():
           screenHeight = m.height
           screenWidth = m.width
-        Dialog.setGeometry((screenWidth/2)-(1000/2),(screenHeight/2)-(768/2),1000,768)
-        Dialog.setStyleSheet("background-color:rgb(255, 255, 255)")
+        MainWindow.setGeometry((screenWidth/2)-(1000/2),(screenHeight/2)-(768/2),1000,768)
+        MainWindow.setStyleSheet("background-color:rgb(255, 255, 255)")
         font = QtGui.QFont()
         font.setPointSize(18)
         font.setBold(True)
         font.setWeight(75)
+        self.window = MainWindow
         self.result_text.setFont(font)
         self.result_text.setAlignment(QtCore.Qt.AlignCenter)
         self.result_text.setStyleSheet("color:rgb(0,0,0)")
-        self.push_button_play_again = QtWidgets.QPushButton(Dialog)
+        self.push_button_play_again = QtWidgets.QPushButton(MainWindow)
         self.push_button_play_again.setGeometry(QtCore.QRect(335, 372, 320, 60))
         self.push_button_play_again.setStyleSheet("color:rgb(0,0,0)")
         font = QtGui.QFont()
@@ -48,16 +52,15 @@ class UI_ResultDialog(object):
         font.setBold(False)
         font.setWeight(50)
         self.push_button_play_again.setFont(font)
-
-        self.label_picture_player = QtWidgets.QLabel(Dialog)
+        self.push_button_play_again.clicked.connect(self.open_choose_hand_window)
+        self.label_picture_player = QtWidgets.QLabel(MainWindow)
         self.label_picture_player.setGeometry(QtCore.QRect(390, 436, 201, 350)) 
         self.label_picture_player.setStyleSheet(self.picture_player)
-        self.label_picture_player.setText("")
 
-        self.label_picture_opponent = QtWidgets.QLabel(Dialog)
+        self.label_picture_opponent = QtWidgets.QLabel(MainWindow)
         self.label_picture_opponent.setGeometry(QtCore.QRect(400, -25, 201, 350))
         self.label_picture_opponent.setStyleSheet(self.picture_opponent)
-        self.label_picture_opponent.setText("")
+   
 
    
         font = QtGui.QFont()
@@ -65,8 +68,8 @@ class UI_ResultDialog(object):
         font.setWeight(75)
        
 
-        self.retranslateUi(Dialog)
-        QtCore.QMetaObject.connectSlotsByName(Dialog)
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
@@ -74,15 +77,13 @@ class UI_ResultDialog(object):
         self.result_text.setText(_translate("Dialog", self.label_text))
         self.push_button_play_again.setText(_translate("Dialog", "PLAY AGAIN"))
     
+    def open_choose_hand_window(self):
+        self.windows2 = QtWidgets.QMainWindow()
+        self.ui = ChooseHand.ChooseHandWindow()
+        self.ui.setupUi (self.windows2)
+        self.ui.provide_click_listeners()
+        self.soundclicks = _Audio()
+        self.soundclicks.playClickingSound()
+        self.windows2.show()  
+        self.window.close()
 
-
-
-if __name__ == "__main__":
-    import sys
-    
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = UI_ResultDialog(constants.DRAW, constants.OPPONENT_PAPER, constants.PLAYER_PAPER)
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())

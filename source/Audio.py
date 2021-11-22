@@ -21,7 +21,7 @@ class _Audio:
       self.__play(constants.LOSE_SOUND)
 
    def playDrawSound(self):
-      self.play(constants.DRAW_SOUND)
+      self.__play(constants.DRAW_SOUND)
 
    def playVictorySound(self):
       self.__play(constants.VICTORY_SOUND) 
