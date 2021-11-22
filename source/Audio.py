@@ -7,10 +7,13 @@ from Constants import _Constants as constants
 class _Audio:
    def playBackgroundMusic(self):
       self.__play(constants.BACKGROUND_MUSIC)
+      self.sound.setLoops(20)
+      self.sound.Loop()
+
 
    def playClickingSound(self):
       self.__play(constants.MOUSE_CLICK)
-
+  
    def playGameOverSound(self):
       self.__play(constants.GAMEOVER_SOUND)
 

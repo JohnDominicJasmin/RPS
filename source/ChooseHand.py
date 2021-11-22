@@ -19,7 +19,7 @@ import Scissor
 import Paper
 import Enemy
 from random import randint
-from PyQt5.QtMultimedia import QSound
+from Audio import _Audio
 
 
 class ChooseHandWindow(object):
@@ -101,9 +101,7 @@ class ChooseHandWindow(object):
         self.scissorButton.clicked.connect(self.scissor_button_on_click)
         self.rockButton.clicked.connect(self.rock_button_on_click)
         self.paperButton.clicked.connect(self.paper_button_on_click)
-        self.sound = QSound("source/sounds/win.wav")
-        self.sound.play()
-        
+    
     def scissor_button_on_click(self):
         self.playAs(Scissor.Hand_Scissor)
 
@@ -117,11 +115,26 @@ class ChooseHandWindow(object):
     def playAs(self,strategy):
         self.strategy = Abstract_Strategy(self.enemy.create_enemy())
         self.strategy.play_against(strategy)
-        print(self.strategy.get_score())
+        score = self.strategy.get_score()
+        print(score)#todo
+        self.play_sound_accordingly(score)
         self.strategy.set_ui_result()
-        self.window.close()
+        self.window.hide()
+
+    def play_sound_accordingly(self, score):
+        self.sound = _Audio()
+        if score == -1:
+            self.sound.playLoseSound()
+
+        if score == 0:
+            self.sound.playDrawSound()
+
+        if score == 1:
+            self.sound.playWinSound()
 
 
+
+        
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
