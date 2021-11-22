@@ -105,16 +105,16 @@ class ChooseHandWindow(object):
         self.sound.play()
         
     def scissor_button_on_click(self):
-        self.play(Scissor.Hand_Scissor)
+        self.playAs(Scissor.Hand_Scissor)
 
     def rock_button_on_click(self):
-        self.play(Rock.Hand_Rock)
+        self.playAs(Rock.Hand_Rock)
 
     def paper_button_on_click(self):
-        self.play(Paper.Hand_Paper)
+        self.playAs(Paper.Hand_Paper)
     
 
-    def play(self,strategy):
+    def playAs(self,strategy):
         self.strategy = Abstract_Strategy(self.enemy.create_enemy())
         self.strategy.play_against(strategy)
         print(self.strategy.get_score())
