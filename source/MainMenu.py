@@ -12,7 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from images import ResourceImage
 from screeninfo import get_monitors
 from ChooseHand import *
-
+from Audio import _Audio
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -28,7 +28,10 @@ class Ui_MainWindow(object):
           screenWidth = m.width
         MainWindow.setGeometry((screenWidth/2)-(1000/2),(screenHeight/2)-(768/2),1000,768)
         self.window = MainWindow
-    
+
+        self.sound = _Audio()
+        self.sound.playBackgroundMusic()
+        
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
@@ -41,13 +44,11 @@ class Ui_MainWindow(object):
         self.pushButton.setStyleSheet("background:rgb(206, 206, 206);\n"
 "color: rgb(0, 0, 0);")
         self.startButton.setObjectName("startButton")
-        self.pushButton.clicked.connect(self.openChooseHand)
+  
      
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(400, 330, 201, 321))
         self.label.setStyleSheet("image: url(:/new/images/Scissor.svg);")
-        self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("Tesoura (1).svg"))
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
@@ -72,19 +73,31 @@ class Ui_MainWindow(object):
 "/PAPER/\n"
 "SCISSOR"))
 
+    def provide_click_listeners(self):
+        self.pushButton.clicked.connect(self.openChooseHand)
+
     def openChooseHand(self):
         self.windows2 = QtWidgets.QMainWindow()
         self.ui = ChooseHandWindow()
         self.ui.setupUi (self.windows2)
+        self.ui.provide_click_listeners()
+        self.soundclicks = _Audio()
+        self.soundclicks.playClickingSound()
         self.windows2.show()  
-        self.window.close()
+        self.window.hide()
+
+
+
+
 
 if __name__ == "__main__":
     import sys
-    
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
+    
     ui.setupUi(MainWindow)
+    ui.provide_click_listeners()
     MainWindow.show()
     sys.exit(app.exec_())
