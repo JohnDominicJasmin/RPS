@@ -19,8 +19,7 @@ import Scissor
 import Paper
 import Enemy
 from random import randint
-
-
+from PyQt5.QtMultimedia import QSound
 
 
 class ChooseHandWindow(object):
@@ -47,7 +46,6 @@ class ChooseHandWindow(object):
         self.paper_picture_big.setStyleSheet("\n"
 "image: url(:/new/images/Paper.svg);")
         self.paper_picture_big.setText("")
-        self.paper_picture_big.setPixmap(QtGui.QPixmap("python/Papel (1).svg"))
         self.paper_picture_big.setObjectName("paper_picture_big")
         self.label_play = QtWidgets.QLabel(self.centralwidget)
         self.label_play.setGeometry(QtCore.QRect(390, 460, 251, 51))
@@ -79,49 +77,44 @@ class ChooseHandWindow(object):
         self.rockButton.setObjectName(u"rockButton")
         self.rockButton.setGeometry(QRect(270, 600, 161, 141))
         self.rockButton.setStyleSheet(u"image: url(:/new/images/rock_small.svg);")
-        self.rockButton.clicked.connect(self.rock_button_on_click)
+    
 
 
         self.paperButton = QPushButton(self.centralwidget)
         self.paperButton.setObjectName(u"paperButton")
         self.paperButton.setGeometry(QRect(440, 600, 141, 141))
         self.paperButton.setStyleSheet(u"image: url(:/new/images/paper_small.svg);")
-        self.paperButton.clicked.connect(self.paper_button_on_click)
+    
 
 
         self.scissorButton = QPushButton(self.centralwidget)
         self.scissorButton.setObjectName(u"scissorButton")
         self.scissorButton.setGeometry(QRect(590, 600, 131, 141))
         self.scissorButton.setStyleSheet(u"image: url(:/new/images/scissor_small.svg);")
-        self.scissorButton.clicked.connect(self.scissor_button_on_click)
         MainWindow.setCentralWidget(self.centralwidget)
         
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-
-
+    def provide_click_listeners(self):
+    
+        self.scissorButton.clicked.connect(self.scissor_button_on_click)
+        self.rockButton.clicked.connect(self.rock_button_on_click)
+        self.paperButton.clicked.connect(self.paper_button_on_click)
+        self.sound = QSound("source/sounds/win.wav")
+        self.sound.play()
+        
     def scissor_button_on_click(self):
-        self.strategy = Abstract_Strategy(self.enemy.create_enemy())
-        self.strategy.play_against(Scissor.Hand_Scissor)
-        print(self.strategy.get_score())
-        self.strategy.set_ui_result()
-        self.window.close()
-
-
+        self.play(Scissor.Hand_Scissor)
 
     def rock_button_on_click(self):
-        self.strategy = Abstract_Strategy(self.enemy.create_enemy())
-        self.strategy.play_against(Rock.Hand_Rock)
-        print(self.strategy.get_score())
-        self.strategy.set_ui_result()
-        self.window.close()
-       
+        self.play(Rock.Hand_Rock)
 
     def paper_button_on_click(self):
-        self.test(Paper.Hand_Paper)
+        self.play(Paper.Hand_Paper)
+    
 
-    def test(self,strategy):
+    def play(self,strategy):
         self.strategy = Abstract_Strategy(self.enemy.create_enemy())
         self.strategy.play_against(strategy)
         print(self.strategy.get_score())
