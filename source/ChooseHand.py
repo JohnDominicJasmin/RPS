@@ -20,17 +20,19 @@ import Paper
 import Enemy
 from random import randint
 from Audio import _Audio
-
+import MainMenu
 
 class ChooseHandWindow(object):
 
     def setupUi(self, MainWindow):  
         self.enemy = Enemy.Enemy_Hand
        
+   
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1000, 768)
         MainWindow.setFixedSize(1000,768)
         MainWindow.setStyleSheet("background-color: rgb(255, 255, 255);")
+     
         for m in get_monitors():
             screenHeight = m.height
             screenWidth = m.width
@@ -78,6 +80,10 @@ class ChooseHandWindow(object):
         self.rockButton.setGeometry(QRect(270, 600, 161, 141))
         self.rockButton.setStyleSheet(u"image: url(:/new/images/rock_small.svg);")
     
+    
+        self.backButton = QPushButton(self.centralwidget)
+        self.backButton.setGeometry(QRect(5, 5, 31, 31))
+        self.backButton.setStyleSheet(u"image: url(source/images/back.svg);")
 
 
         self.paperButton = QPushButton(self.centralwidget)
@@ -101,7 +107,7 @@ class ChooseHandWindow(object):
         self.scissorButton.clicked.connect(self.scissor_button_on_click)
         self.rockButton.clicked.connect(self.rock_button_on_click)
         self.paperButton.clicked.connect(self.paper_button_on_click)
-    
+        self.backButton.clicked.connect(self.back_button_on_click)
     def scissor_button_on_click(self):
         self.playAs(Scissor.Hand_Scissor)
 
@@ -111,15 +117,26 @@ class ChooseHandWindow(object):
     def paper_button_on_click(self):
         self.playAs(Paper.Hand_Paper)
     
+    def back_button_on_click(self):
+        self.windows2 = QtWidgets.QMainWindow()
+        self.ui = MainMenu.Ui_MainWindow()
+        self.ui.setupUi (self.windows2)
+        self.ui.provide_click_listeners()
+        self.soundclicks = _Audio()
+        self.soundclicks.playClickingSound()
+        self.windows2.show()  
+        self.window.close()
+
 
     def playAs(self,strategy):
         self.strategy = Abstract_Strategy(self.enemy.create_enemy())
         self.strategy.play_against(strategy)
         score = self.strategy.get_score()
-        print(score)#todo
+      
+        
         self.play_sound_accordingly(score)
         self.strategy.set_ui_result()
-        self.window.close()
+        self.window.setVisible(False)
 
     def play_sound_accordingly(self, score):
         self.sound = _Audio()
