@@ -57,4 +57,4 @@ class Ui_MainWindow(object):
         self.label_3.setText(_translate("MainWindow", "ROCK\n"
 "/PAPER/\n"
 "SCISSOR"))
-import img_rc
+

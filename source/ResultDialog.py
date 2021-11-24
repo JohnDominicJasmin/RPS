@@ -84,6 +84,6 @@ class UI_ResultDialog(object):
         self.ui.provide_click_listeners()
         self.soundclicks = _Audio()
         self.soundclicks.playClickingSound()
-        self.windows2.show()  
+        self.windows2.show()
         self.window.close()
 

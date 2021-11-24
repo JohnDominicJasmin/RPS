@@ -71,4 +71,3 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label_play.setText(_translate("MainWindow", "LET\'S PLAY!"))
         self.label_option.setText(_translate("MainWindow", "PICK AN OPTION:"))
-import img_rc
