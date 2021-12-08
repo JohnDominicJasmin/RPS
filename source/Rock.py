@@ -16,7 +16,7 @@ class Hand_Rock(Parent):
     def get_score(self):
         self.hand_result = {
             Scissor.Hand_Scissor:1,
-            Paper.Hand_Paper:-1,
+            Paper.Hand_Paper : -1,
             __class__:0}
         return self.hand_result.get(self.strategy)    
 
@@ -25,9 +25,9 @@ class Hand_Rock(Parent):
 
         self.window = QtWidgets.QMainWindow()
         self.hand_window = {
-            Scissor.Hand_Scissor:ResultDialog.UI_ResultDialog(constants.WIN,constants.OPPONENT_SCISSOR, constants.PLAYER_ROCK),
-            Paper.Hand_Paper: ResultDialog.UI_ResultDialog(constants.LOSE,constants.OPPONENT_PAPER,constants.PLAYER_ROCK),
-            __class__:ResultDialog.UI_ResultDialog(constants.DRAW,constants.OPPONENT_ROCK,constants.PLAYER_ROCK)
+            Scissor.Hand_Scissor : ResultDialog.UI_ResultDialog(constants.WIN,constants.OPPONENT_SCISSOR, constants.PLAYER_ROCK),
+            Paper.Hand_Paper : ResultDialog.UI_ResultDialog(constants.LOSE,constants.OPPONENT_PAPER,constants.PLAYER_ROCK),
+            __class__ : ResultDialog.UI_ResultDialog(constants.DRAW,constants.OPPONENT_ROCK,constants.PLAYER_ROCK)
             }
 
         self.ui = self.hand_window.get(self.strategy)

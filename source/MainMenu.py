@@ -6,7 +6,9 @@ from screeninfo import get_monitors
 import ChooseHand
 from Audio import _Audio
 
+
 class Ui_MainWindow(object):
+    
     def setupUi(self, MainWindow):
         
         MainWindow.setObjectName("MainWindow")
@@ -20,9 +22,6 @@ class Ui_MainWindow(object):
           screenWidth = m.width
         MainWindow.setGeometry((screenWidth/2)-(1000/2),(screenHeight/2)-(768/2),1000,768)
         self.window = MainWindow
-
-
-        
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
@@ -52,7 +51,7 @@ class Ui_MainWindow(object):
         self.label_3.setAlignment(QtCore.Qt.AlignCenter)
         self.label_3.setObjectName("label_3")
         MainWindow.setCentralWidget(self.centralwidget)
-
+        self.pushButton.clicked.connect(self.open_choose_hand_window)
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -83,14 +82,13 @@ class Ui_MainWindow(object):
 
 if __name__ == "__main__":
     import sys
-
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     sound = _Audio()
     sound.playBackgroundMusic()
-        
     ui.setupUi(MainWindow)
     ui.provide_click_listeners()
     MainWindow.show()
+ 
     sys.exit(app.exec_())

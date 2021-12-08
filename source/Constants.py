@@ -1,6 +1,3 @@
-#label text 
-#picture opponent
-#picture self.picture
 
 class _Constants:
 
@@ -25,5 +22,7 @@ class _Constants:
     VICTORY_SOUND = "victory"
     WIN_SOUND = "win"
     DRAW_SOUND = "draw_sound"
+
+
     SOUND_FILE_FORMAT =  ".wav"
     SOUND_DIRECTORY = "source/sounds/"

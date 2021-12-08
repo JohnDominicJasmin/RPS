@@ -2,6 +2,7 @@
 import GameStrategy as Interface
 
 class Abstract_Strategy :
+
     def __init__(self, strategy) :
         self.strategy = strategy
 

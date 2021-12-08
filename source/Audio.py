@@ -31,6 +31,5 @@ class _Audio:
 
    def __play(self,file_name):
       self.sound = QSound(constants.SOUND_DIRECTORY + file_name + constants.SOUND_FILE_FORMAT)
-      
       self.sound.play()
    
