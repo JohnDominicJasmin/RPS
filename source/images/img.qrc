@@ -11,7 +11,7 @@
         <file>Rock_Big.png</file>
         <file>Scissor_Big_Upside.png</file>
         <file>Scissor_Big.png</file>
-        <file>game-win.jpg</file>
-        <file>game-lose-2.jpg</file>
+        <file>game-lose.png</file>
+        <file>game-win.png</file>
     </qresource>
 </RCC>

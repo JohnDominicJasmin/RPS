@@ -74,7 +74,7 @@ class Ui_MainWindow(object):
         self.soundclicks = _Audio()
         self.soundclicks.playClickingSound()
         self.windows2.show()  
-        self.window.close()
+        self.window.setVisible(False)
 
 
 

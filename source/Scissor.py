@@ -5,7 +5,6 @@ import ResultDialog
 from Constants import _Constants as constants
 from PyQt5 import QtCore, QtGui, QtWidgets
 from images import ResourceImage
-
 class Hand_Scissor(Parent):
     
 
@@ -26,10 +25,10 @@ class Hand_Scissor(Parent):
     def set_ui_result(self):
 
         self.window = QtWidgets.QMainWindow()
-
+        
         self.hand_window = {
             Paper.Hand_Paper: ResultDialog.UI_ResultDialog(constants.WIN,constants.OPPONENT_PAPER, constants.PLAYER_SCISSOR),
-            Rock.Hand_Rock:ResultDialog.UI_ResultDialog(constants.LOSE, constants.OPPONENT_ROCK, constants.PLAYER_SCISSOR),
+            Rock.Hand_Rock: ResultDialog.UI_ResultDialog(constants.LOSE, constants.OPPONENT_ROCK, constants.PLAYER_SCISSOR),
             __class__: ResultDialog.UI_ResultDialog(constants.DRAW, constants.OPPONENT_SCISSOR, constants.PLAYER_SCISSOR)
             }
 

@@ -64,7 +64,7 @@ class UI_ResultDialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Dialog", "  "))
         self.result_text.setText(_translate("Dialog", self.label_text))
         self.push_button_play_again.setText(_translate("Dialog", "PLAY AGAIN"))
     
@@ -76,5 +76,5 @@ class UI_ResultDialog(object):
         self.soundclicks = _Audio()
         self.soundclicks.playClickingSound()
         self.windows2.show()
-        self.window.close()
+        self.window.setVisible(False)
 

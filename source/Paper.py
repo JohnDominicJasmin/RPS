@@ -23,6 +23,7 @@ class Hand_Paper(Parent):
 
     def set_ui_result(self):
         self.window = QtWidgets.QMainWindow()
+        
         self.hand_window = {
             Rock.Hand_Rock: ResultDialog.UI_ResultDialog(constants.WIN,constants.OPPONENT_ROCK,constants.PLAYER_PAPER),
             Scissor.Hand_Scissor:ResultDialog.UI_ResultDialog(constants.LOSE,constants.OPPONENT_SCISSOR,constants.PLAYER_PAPER),
